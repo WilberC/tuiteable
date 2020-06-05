@@ -9,6 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :email, null: false, default: ""
       t.string :location
       t.string :avatar
+      t.integer :followers_count, null: false, default: 0
+      t.integer :followings_count, null: false, default: 0
       t.boolean :admin, null: false, default: false
       t.string :encrypted_password, null: false, default: ""
 
