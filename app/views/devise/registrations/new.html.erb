@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<header class="main-content-header">
+  <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
+  <h2 class="sign-up-title">Back to Explorer </h2>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: 'user_session_url', :html => {class: 'main-content-data'}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field field-group field-group-one-line">
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
 
-  <div class="field">
+  <div class="field field-group field-group-one-line">
+    <%= f.label :name %>
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+  <div class="field field-group field-group-one-line">
+    <%= f.label :email %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field field-group field-group-one-line">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%# if @minimum_password_length %>
+    <!--      <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+    <%# end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="field field-group field-group-one-line">
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="field field-group field-group-one-line">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%#= f.select :location, [['Perú'], ['Chile']] %>
   </div>
+
+  <div class="field field-group field-group-one-line">
+    <%= f.label :avatar %>
+    <div class="upload-btn-wrapper">
+      <button class="ghost-blue-btn">Upload a file</button>
+      <input type="file" name="myfile"/>
+    </div>
+    <%#= f.file_field :avatar %>
+  </div>
+
+  <div class="field field-group bio-text-area">
+    <%= f.label :bio, class: 'text-area-bio-label' %>
+    <textarea name="bio" id="bio_id" rows="10"></textarea>
+    <%#= f.text_area(:bio, :text, size: "20x30") %>
+  </div>
+  <div class="actions actions-sign-up">
+    <%= f.submit "Create an Account", class: 'solid-blue-btn' %>
+  </div>
+  <br>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
