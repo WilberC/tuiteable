@@ -1,0 +1,74 @@
+.sign-up-title, .field-group {
+    color: #FFFFFF;
+}
+
+.actions-sign-up {
+    display: block !important;
+    text-align: center;
+}
+
+.main-content-data {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.field-group-one-line {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 15px;
+}
+
+.bio-text-area {
+    margin: 15px;
+}
+
+.bio-text-area label {
+    display: block;
+}
+
+.bio-text-area textarea {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.field-group label::after {
+    content: ':';
+}
+
+.field-group input, .bio-text-area textarea {
+    border-radius: 15px;
+    padding: 10px;
+    outline: none;
+}
+
+.field-group {
+    text-align: left;
+}
+
+#user_avatar {
+
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.main-content-header {
+    display: flex;
+    align-items: center;
+}
+
+.blue-arrow {
+    margin-left: 16px;
+    margin-right: 50px;
+}

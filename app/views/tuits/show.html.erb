@@ -1,2 +1,35 @@
-<h1>Tuits#show</h1>
-<p>Find me in app/views/tuits/show.html.erb</p>
+<h1> <- Tuit</h1>
+<div>
+    <div>
+        <%if @tuit.owner.avatar.nil?%>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <% else %>
+            <%=tuit.owner.avatar%>
+        <% end %>
+    </div>
+    <div>
+        <p><%=@tuit.owner.name%></p>
+        <p>@<%=@tuit.owner.username%></p>
+        <p><%=@tuit.body%></p>
+        <p><%=@tuit.updated_at.strftime("%-l:%M %p - %b %-d, %Y") %></p>
+        <p><%=@tuit.comments_count%> Likes #</p>
+    </div>
+</div>
+<div>
+ <% @tuit.commentators.each do |commentator| %>
+    <% commentator.comments.each do |comment|%>
+    <div>
+        <%if commentator.avatar.nil?%>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <% else %>
+            <%=commentator.avatar%>
+        <% end %>
+    </div>
+    <div>
+        <p><%=commentator.name%> @<%=commentator.username%> - <%=comment.updated_at.strftime("%-d %bio") %></p>
+        <%=comment.body %>
+    </div>
+    <% end %> 
+ <% end %>
+</div>
+

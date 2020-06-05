@@ -1,2 +1,19 @@
-<h1>Tuits#index</h1>
-<p>Find me in app/views/tuits/index.html.erb</p>
+<h1>Explorer</h1>
+<% @tuits.each do |tuit| %>
+    <%= link_to tuit_path tuit.id do %>
+    <div>
+        <div>
+            <%if tuit.owner.avatar.nil?%>
+                 <%= image_tag('noavatar.png', :alt => tuit.owner.name) %>
+            <% else %>
+                <%=tuit.owner.avatar%>
+            <% end %>
+        </div>
+        <div>
+            <p> <span><%=tuit.owner.name%></span> @<%=tuit.owner.username%> - <%=tuit.created_at.strftime("%-d %B") %></p>
+            <p><%=tuit.body%></p>
+            <p>#c <%=tuit.comments_count%> #l <%=tuit.likes_count%></p>
+        </div>
+    </div>
+    <% end %>
+<% end %>
