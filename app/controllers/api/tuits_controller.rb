@@ -12,15 +12,35 @@ class Api::TuitsController < ApiController
   end
 
   def create
+    @tuit = current_user.tuits.new(tuit_params)
+    if @tuit.save
+      render json: @tuit
+    else
+      render json: @tuit.errors, status: :unprocessable_entity
+    end
   end
 
   def update
+    @tuit = current_user.tuits.find(params[:id])
+    if @tuit.update_attributes(tuit_params)
+      render json: @tuit
+    else
+      render json: @tuit.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @tuit = current_user.tuits.find(params[:id])
+    @tuit.destroy
+    render json: { status: 'Successfully destroyed', data: @tuit }, status: :ok
   end
 
   private
+
+  def tuit_params
+    params.require(:tuit).permit(:body)
+  end
+ 
   def set_owner
     @user = User.find(params[:user_id])
   end
