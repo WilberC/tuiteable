@@ -9,7 +9,7 @@
 <div class="main-content-item">
     <div class="tuit-owner-avatar">
         <%if @tuit.owner.avatar.attached?%>
-            <%= image_tag(tuiter.owner.avatar, :alt => @tuit.owner.name) %>
+            <%= image_tag(@tuit.owner.avatar, :alt => @tuit.owner.name, class: "avatar-profile") %>
         <% else %>
             <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
         <% end %>
