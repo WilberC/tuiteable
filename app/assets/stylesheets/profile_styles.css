@@ -1,0 +1,79 @@
+.profile-content {
+    border: 1px solid #999b9e;
+}
+
+.person-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.person-profile-name {
+    margin-bottom: 0;
+}
+
+.person-profile-username {
+    margin-bottom: 10px;
+    color: #999B9E;
+}
+
+.person-profile-bio {
+    margin-bottom: 15px;
+}
+
+.person-profile-extra-info span {
+    display: block;
+}
+
+.person-profile-extra-info {
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: #999B9E;
+}
+
+.edit-profile-btn {
+    align-self: flex-end;
+}
+
+.profile-content-resources-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #999b9e;
+}
+
+.profile-content-resources-nav li {
+    margin-top: 10px;
+}
+
+.profile-content-resources-nav a {
+    text-decoration: none;
+    color: #999B9E;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.active-bold a {
+    font-weight: bold;
+    color: #ffffff !important;
+}
+
+.tuit-owner, .tuit-body, .tuit-numbers-item-font {
+    color: #FFFFFF;
+}
+
+.like-red {
+    color: #E0245E;;
+}
+
+
+
+
+
+
+
+

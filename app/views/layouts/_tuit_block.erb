@@ -1,0 +1,34 @@
+<% tuits.each do |tuit| %>
+  <%= link_to tuit_path tuit.id do %>
+    <div class="main-content-item">
+      <div class="tuit-owner-avatar">
+        <% if tuit.owner.avatar.attached? %>
+          <%= image_tag url_for(tuit.owner.avatar), class: 'avatar-profile' %>
+        <% else %>
+          <%= image_tag('noavatar.png', :alt => tuit.owner.name) %>
+        <% end %>
+      </div>
+      <div class="tuit-info">
+        <p>
+          <span class="tuit-owner"><%= tuit.owner.name %></span>
+          <span class="tuit-details">@<%= tuit.owner.username %> - <%= tuit.created_at.strftime("%-d %B") %></span>
+        </p>
+        <p class="tuit-body"><%= tuit.body %></p>
+        <div class="tuit-numbers">
+          <%= image_tag('comment.svg', :alt => 'comments') %>
+          <span class="tuit-numbers-item-font tuit-numbers-item"><%= tuit.comments_count %></span>
+          <% if like_show %>
+            <%= image_tag('like_red.svg', :alt => 'likes') %>
+            <span class="tuit-numbers-item-font tuit-numbers-item like-red"> <%= tuit.likes_count %></span></div>
+          <% else %>
+            <%= image_tag('like.svg', :alt => 'likes') %>
+            <span class="tuit-numbers-item-font tuit-numbers-item"> <%= tuit.likes_count %></span>
+            <%if user_signed_in?%>
+                <a href="/delete_tuit/<%= tuit.id %>"><%= image_tag('delete.svg', :alt => 'delete', size: "18x15" ) %></a>
+            <%end%>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+<% end %>

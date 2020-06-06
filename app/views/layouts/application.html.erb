@@ -6,12 +6,47 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'sign-up-styles', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'profile_styles', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+<header class="main-header">
+  <%= image_tag "logo_tuiteable.png", class: 'main-logo' %>
+  <nav class="main-header-nav">
+    <ul class="main-header-nav-links">
+      <li><a href="<%= tuits_url %>"><%= image_tag "hash_icon.png", class: 'hash-icon-nav nav-icon' %>Explorer</a></li>
+      <% if user_signed_in? %>
+        <li>
+          <a href="<%= user_path(current_user) %>">
+            <%= image_tag "profile_icon.png", class: 'profile-icon-nav  nav-icon' %>
+            Profile
+          </a>
+        </li>
+        <li><%= link_to "Log out", destroy_user_session_path, :method => 'delete', :class => "ghost-red-btn" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+<main class="main-content">
+  <!--  <p class="notice"><%#= notice %></p>-->
+  <!--  <p class="alert"><%#= alert %></p>-->
+  <%= yield %>
+</main>
+<footer class="main-footer">
+  <aside class="login-sign">
+    <% if user_signed_in? %>
+      <div class="login-form">
+        <h2>New features coming soon!</h2>
+        <%= image_tag "comming_soon.png", class: 'comming_soon_logo' %>
+      </div>
+    <% else %>
+      <%= render 'devise/shared/login_form' %>
+    <% end %>
+  </aside>
+  <p class="main-footer-text">Made with bravery by {codeable} cohort #2 (Sebas, Humberto y Wilber)</p>
+</footer>
 </body>
 </html>

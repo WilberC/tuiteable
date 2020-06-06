@@ -5,5 +5,5 @@ class Tuit < ApplicationRecord
   has_many :likes
   has_many :likers, through: :likes, source: :user
   has_many :comments
-  has_many :commentators, through: :likes, source: :user
+  has_many :commentators, through: :comments, source: :user
 end

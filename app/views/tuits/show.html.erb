@@ -1,0 +1,52 @@
+
+<div class="main-content-header">
+    <%= link_to root_path do %>
+        <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
+    <% end %>
+  <h2 class="content-title">Tuit </h2>
+</div>
+
+<div class="main-content-item">
+    <div class="tuit-owner-avatar">
+        <%if @tuit.owner.avatar.attached?%>
+            <%= image_tag(@tuit.owner.avatar, :alt => @tuit.owner.name, class: "avatar-profile") %>
+        <% else %>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <% end %>
+    </div>
+    <div class="tuit-info">
+        <p class="tuit-owner"><%=@tuit.owner.name%></p>
+        <p class="tuit-details">@<%=@tuit.owner.username%></p>
+        <p class="tuit-body"><%=@tuit.body%></p>
+        <p class="tuit-details"><%=@tuit.updated_at.strftime("%-l:%M %p - %b %-d, %Y") %></p>
+        <hr>
+        <p class="tuit-numbers">
+            <span class="tuit-owner"><%=@tuit.comments_count%></span>
+            <span class="tuit-details tuit-numbers-item"> <%=like = (@tuit.comments_count > 1) ? 'Likes' : 'Like'%> </span> 
+            <%= link_to new_user_registration_path do %> <% flash.alert = "You must have an account to like this tuit" %>
+                <%= image_tag('like.svg', :alt => 'likes') %>
+            <% end %>
+        </p>
+    </div>
+</div>
+<div class="main-content-item">
+ <% @tuit.commentators.each do |commentator| %>
+    <% commentator.comments.each do |comment|%>
+    <div class="tuit-owner-avatar">
+        <%if commentator.avatar.attached?%>
+            <%= image_tag(commentator.avatar, :alt => @tuit.owner.name) %>
+        <% else %>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <% end %>
+    </div>
+    <div class="tuit-info">
+        <p>
+            <span class="tuit-owner"><%=commentator.name%> </span>
+            <span class="tuit-details">@<%=commentator.username%> - <%=comment.updated_at.strftime("%-d %bio") %></span>
+        </p>
+        <p class="tuit-comment-body"><%=comment.body %></p>
+    </div>
+    <% end %>
+ <% end %>
+</div>
+

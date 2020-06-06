@@ -1,0 +1,18 @@
+.login-form {
+    background: rgba(153, 155, 158, 0.25);
+    width: 230px;
+    padding: 10px 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #FFFFFF;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-form h2 {
+    font-size: 16px;
+    line-height: 20px;
+}

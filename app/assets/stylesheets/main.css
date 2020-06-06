@@ -1,0 +1,139 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap";
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0;
+  background: #1d2128;
+  color: #ffffff;
+}
+
+.main-header {
+  width: 174px;
+  text-align: center;
+  padding-top: 17px;
+}
+
+.main-content {
+  width: 600px;
+}
+
+.main-content-data,
+.main-content-header {
+  border: 1px solid #999b9e;
+  padding: 16px;
+}
+
+.main-footer {
+  width: 300px;
+  text-align: center;
+  padding-top: 7px;
+}
+
+.ghost-blue-btn {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1da1f2 !important;
+  background: transparent;
+  border: 1px solid #1da1f2 !important;
+  border-radius: 15px;
+  padding: 4px 8px;
+}
+
+.solid-blue-btn {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background-color: #1da1f2 !important;
+  border: 1px solid #1da1f2 !important;
+  border-radius: 15px;
+  padding: 4px 8px;
+}
+
+.ghost-red-btn {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: #e0245e !important;
+  background: transparent;
+  border: 1px solid #e0245e;
+  border-radius: 15px;
+  padding: 4px 8px;
+}
+
+.extra-padding-btn {
+  padding: 10px 12px;
+  border-radius: 100px;
+}
+
+.main-footer-text {
+  color: #ffffff;
+  margin: 30px 35px;
+  font-size: 12px;
+}
+
+.main-header-nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.main-header-nav-links li {
+  margin: 20px;
+}
+
+.main-header-nav-links li:not(:last-child) {
+  text-align: left;
+}
+
+.main-header-nav-links li:last-child {
+  text-align: center;
+  margin-left: -10px;
+}
+
+.main-header-nav-links li img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.main-header-nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.main-content-item {
+  border: 1px solid #999b9e;
+  padding: 15px;
+  text-decoration: none;
+  display: flex;
+}
+
+.content-title {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+.avatar-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}

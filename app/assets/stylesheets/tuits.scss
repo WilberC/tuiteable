@@ -1,0 +1,95 @@
+// Place all the styles related to the Tuits controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.tuit-owner {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.tuit-owner-avatar {
+  margin-right: 10px;
+}
+
+.tuit-info {
+  width: 100%;
+}
+
+.tuit-details {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #999b9e;
+}
+
+.tuit-body {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.tuit-numbers {
+  display: flex;
+  align-items: center;
+}
+
+.tuit-numbers-item-font {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.tuit-numbers-item {
+  margin-right: 120px;
+  margin-left: 5px;
+}
+
+.tuit-comment-body {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.alert {
+  width: 367px;
+  height: 30px;
+  background: #d66d6d;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.tuit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tuit-form-text {
+  background: inherit;
+  border: none;
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.tuit-form-button {
+  background: #1da1f2;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  margin-top: 10px;
+}
