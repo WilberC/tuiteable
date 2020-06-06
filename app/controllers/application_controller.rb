@@ -6,6 +6,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     custom_keys = [:username, :name, :email, :password, :password_confirmation, :location, :avatar, :bio]
     devise_parameter_sanitizer.permit(:sign_up, keys: custom_keys)
-    devise_parameter_sanitizer.permit(:account_update, keys: custom_keys)
   end
 end
