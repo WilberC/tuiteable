@@ -68,3 +68,28 @@
   align-items: center;
   color: #ffffff;
 }
+
+.tuit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.tuit-form-text {
+  background: inherit;
+  border: none;
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.tuit-form-button {
+  background: #1da1f2;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  margin-top: 10px;
+}
