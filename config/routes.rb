@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-      registrations: 'users/registrations'
+    registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "tuits#index"
   resources :users, only: :show
   get '/user_like/:id', to: 'users#show_likes'
+  post '/create_tuit', to: 'tuits#create_tuit'
+  get '/delete_tuit/:id', to: 'tuits#delete_tuit'
   resources :tuits, only: [:index, :show]
   namespace :api do
     resources :tuits, only: [:index, :show, :create, :update, :destroy]

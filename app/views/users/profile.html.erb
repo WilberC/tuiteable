@@ -1,7 +1,10 @@
-<header class="main-content-header">
-  <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
-  <h2 class="sign-up-title">Back to Explorer </h2>
-</header>
+<div class="main-content-header">
+    <%= link_to root_path do %>
+        <%= image_tag "blue_arrow.png", class: 'blue-arrow' %>
+    <% end %>
+  <h2 class="content-title">Back to Explorer </h2>
+</div>
+
 <div class="profile-content">
   <section class="person-profile">
     <% if @user.avatar.attached? %>

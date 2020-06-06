@@ -2,12 +2,30 @@
   <h2 class="content-title">Explorer</h2>
 </div>
 
+<%if user_signed_in?%>
+  <div class = "main-content-item">
+    <div class="tuit-owner-avatar">
+        <%if @user.avatar.attached?%>
+                <%= image_tag(@user.avatar, :alt => @user.name, class: "avatar-profile") %>
+        <% else %>
+            <%= image_tag('noavatar.png', :alt => @user.name) %>
+        <% end %>
+    </div>
+    <div class="tuit-info">
+      <%= form_with(url: "/create_tuit/", method: "post", class: "tuit-form") do |f| %>
+        <%= f.text_area :body, class: "tuit-form-text", placeholder: "What you are thinking about is..." %>
+        <%= f.submit "tuiteable!", class: "tuit-form-button" %>
+      <% end %>
+    </div>
+  </div>
+<%end%>
+
 <% @tuits.each do |tuit| %>
     <%= link_to tuit_path tuit.id do %>
     <div class="main-content-item">
         <div class="tuit-owner-avatar">
             <%if tuit.owner.avatar.attached?%>
-                 <%= image_tag(tuit.owner.avatar, :alt => tuit.owner.name) %>
+                 <%= image_tag(tuit.owner.avatar, :alt => tuit.owner.name, class: "avatar-profile") %>
             <% else %>
                 <%= image_tag('noavatar.png', :alt => tuit.owner.name) %>
             <% end %>
@@ -22,8 +40,11 @@
                 <%= image_tag('comment.svg', :alt => 'comments') %>
                 <span class="tuit-numbers-item-font tuit-numbers-item"><%=tuit.comments_count%></span>
                 <%= image_tag('like.svg', :alt => 'likes') %>
-                <span class="tuit-numbers-item-font tuit-numbers-item"> <%=tuit.likes_count%></span></div>
+                <span class="tuit-numbers-item-font tuit-numbers-item"> <%=tuit.likes_count%></span>
+            </div>
+                
         </div>
     </div>
     <% end %>
 <% end %>
+

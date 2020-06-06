@@ -22,9 +22,13 @@
             <span class="tuit-numbers-item-font tuit-numbers-item like-red"> <%= tuit.likes_count %></span></div>
           <% else %>
             <%= image_tag('like.svg', :alt => 'likes') %>
-            <span class="tuit-numbers-item-font tuit-numbers-item"> <%= tuit.likes_count %></span></div>
+            <span class="tuit-numbers-item-font tuit-numbers-item"> <%= tuit.likes_count %></span>
+            <%if user_signed_in?%>
+                <a href="/delete_tuit/<%= tuit.id %>"><%= image_tag('delete.svg', :alt => 'delete', size: "18x15" ) %></a>
+            <%end%>
+            </div>
           <% end %>
-          </div>
+        </div>
     </div>
   <% end %>
 <% end %>
