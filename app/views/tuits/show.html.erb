@@ -8,10 +8,10 @@
 
 <div class="main-content-item">
     <div class="tuit-owner-avatar">
-        <%if @tuit.owner.avatar.nil?%>
-            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <%if @tuit.owner.avatar.attached?%>
+            <%= image_tag(tuiter.owner.avatar, :alt => @tuit.owner.name) %>
         <% else %>
-            <%=tuit.owner.avatar%>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
         <% end %>
     </div>
     <div class="tuit-info">
@@ -33,10 +33,10 @@
  <% @tuit.commentators.each do |commentator| %>
     <% commentator.comments.each do |comment|%>
     <div class="tuit-owner-avatar">
-        <%if commentator.avatar.nil?%>
-            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
+        <%if commentator.avatar.attached?%>
+            <%= image_tag(commentator.avatar, :alt => @tuit.owner.name) %>
         <% else %>
-            <%=commentator.avatar%>
+            <%= image_tag('noavatar.png', :alt => @tuit.owner.name) %>
         <% end %>
     </div>
     <div class="tuit-info">
