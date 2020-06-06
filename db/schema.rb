@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_234253) do
     t.string "email", default: "", null: false
     t.string "location"
     t.string "avatar"
+    t.integer "followers_count", default: 0, null: false
+    t.integer "followings_count", default: 0, null: false
     t.boolean "admin", default: false, null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -90,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_234253) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.string "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

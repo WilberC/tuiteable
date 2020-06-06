@@ -10,19 +10,24 @@ Rails.application.routes.draw do
   get '/delete_tuit/:id', to: 'tuits#delete_tuit'
   resources :tuits, only: [:index, :show]
   namespace :api do
-    resources :tuits, only: [:index, :show, :create, :update, :destroy]
-    resources :users, only: [] do
-      resources :tuits, only: [:index, :show, :create, :update, :destroy]
+    namespace :sessions do
+      devise_scope :user do
+        post "sign_up", to: "registrations#create"
+        post "sign_in", to: "sessions#create"
+        put "log_out", to: "sessions#update"
+      end
+    end
+    resources :users, only: [:create] do
+      resources :tuits, only: [:index, :show]
       get '/followers', to: 'follows#show'
       get '/followings', to: 'follows#show'
-      get '/follow', to: 'follows#create'
-      get '/follow', to: 'follows#destroy'
+      post '/follow', to: 'follows#create'
+      delete '/follow', to: 'follows#destroy'
     end
-    resources :tuits, only: [] do
+    resources :tuits, only: [:create, :update, :destroy] do
       resources :comments, only: [:index, :show, :create, :update, :destroy]
-    end
-    resources :tuits, only: [] do
-      resources :likes, only: [:index, :create, :destroy]
+      resources :likes, only: [:index, :create]
+      delete '/likes', to: 'likes#destroy'
     end
   end
 end
