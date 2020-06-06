@@ -1,9 +1,8 @@
 class Api::Sessions::SessionsController < Devise::SessionsController
 	before_action :sign_in_params, only: :create
-	before_action :load_user, only: [:create, :destroy]
+	before_action :load_user, only: [:create, :update]
 	skip_before_action :verify_authenticity_token, only: :create
-	skip_before_action :verify_signed_out_user, only: :destroy
-	protect_from_forgery with: :null_session, only: :destroy
+	#protect_from_forgery with: :null_session, only: :update
 	# sign in
 	def create
 		if @user.valid_password?(sign_in_params[:password])
@@ -22,16 +21,16 @@ class Api::Sessions::SessionsController < Devise::SessionsController
 		end
 	end
 
-	def destroy
-		puts "Entro a destroy"
-		@user.authentication_token = nil
-		@user.save
-		render json: {
-			messages: "Authentication token successfully changed.",
-			is_success: true,
-			data: {user: @user}
-		}, status: :ok
-	end
+	# def update
+	# 	puts "Entro a update"
+	# 	@user.authentication_token = nil
+	# 	@user.save
+	# 	render json: {
+	# 		messages: "Authentication token successfully changed.",
+	# 		is_success: true,
+	# 		data: {user: @user}
+	# 	}, status: :ok
+	# end
 
 	private
 	def sign_in_params
@@ -40,9 +39,7 @@ class Api::Sessions::SessionsController < Devise::SessionsController
 
 	def load_user
 		@user = User.find_for_database_authentication(email: sign_in_params[:email])
-		puts "<--------------------------------------------------------------------->"
-		puts @user.to_json
-		puts "<--------------------------------------------------------------------->"
+		
 		if @user
 			return @user
 		else
