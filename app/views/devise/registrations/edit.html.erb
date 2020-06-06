@@ -48,14 +48,16 @@
     <%= f.label :avatar %>
     <div class="upload-btn-wrapper">
       <button class="ghost-blue-btn">Upload a file</button>
-      <input type="file" name="myfile"/>
+      <%= f.file_field :avatar %>
+<!--      <input type="file" name="myfile"/>-->
     </div>
     <%#= f.file_field :avatar %>
   </div>
 
   <div class="field field-group bio-text-area">
     <%= f.label :bio, class: 'text-area-bio-label' %>
-    <textarea name="bio" id="bio_id" rows="10"></textarea>
+<!--    <textarea name="bio" id="bio_id" rows="10"></textarea>-->
+    <%= f.text_area(:bio, size: "20x10") %>
     <%#= f.text_area(:bio, :text, size: "20x30") %>
   </div>
 
