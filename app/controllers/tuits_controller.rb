@@ -15,13 +15,20 @@ class TuitsController < ApplicationController
   end
 
   def delete_tuit
-    p '-------------------------------'
-    p params
-    p '-------------------------------'
-    #p id = params[:id]
-    @deletedtuit = Tuit.find(params[:id])
-    @deletedtuit.destroy
+    tuit = Tuit.find(params[:id])
+    tuit.comments.each(&:destroy)
+    tuit.likes.each(&:destroy)
+    related_tuits = Tuit.where(parent_id: tuit.id)
+    related_tuits.each do |tuit_related|
+      tuit_related.parent_id = nil
+      tuit_related.save
+    end
+    tuit.destroy!
     redirect_to user_path(current_user)
+
+    # @deletedtuit = Tuit.find(params[:id])
+    # @deletedtuit.destroy
+    # redirect_to user_path(current_user)
 
   end
 
